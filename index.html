@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiles - AR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a class="link" href="/wall.html">Wall</a>
+    </header>
+    <div class="container">
+        <model-viewer
+          src="./assets/mat.glb"
+          shadow-intensity="1"
+          ar
+          ar-placement="wall"
+          camera-controls
+          camera-orbit="90deg 0deg 2m"
+          camera-target="0m 1.2m 0m"
+          touch-action="pan-y"
+          alt="A 3D model of some wall art">
+          <button slot="ar-button" id="ar-button">View in your space</button>
+  
+          <div id="ar-prompt">
+            <img src="https://modelviewer.dev/assets/hand.png" />
+          </div>
+  
+          <button id="ar-failure">AR is not tracking!</button>
+        </model-viewer>
+        <div class="slider">
+          <div class="slides">
+            <button class="slide selected" onclick="switchSrc(this, 'mat')" style="background-image: url('./assets/mat.jpg')">
+            <button class="slide selected" onclick="switchSrc(this, '2')" style="background-image: url('./assets/mat2.jpg')">
+            <button class="slide selected" onclick="switchSrc(this, 'mat3')" style="background-image: url('./assets/mat3.jpg')">
+          </div>
+        </div>
+      </div>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
